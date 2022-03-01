@@ -20,42 +20,42 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpGet("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<ActionResult<IEnumerable<WeatherForecast>>> Get()
         {
             _logger.LogInformation("Empty");
-            return _weatherForecastService.GetForecastAsync(DateTime.UtcNow).Result;
+            return await _weatherForecastService.GetForecastAsync(DateTime.UtcNow);
         }
 
         [HttpGet("WeatherForecast/{location}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
-        public IEnumerable<WeatherForecast> Get([FromRoute] string? location)
+        public async Task<ActionResult<IEnumerable<WeatherForecast>>> Get([FromRoute] string? location)
         {
             _logger.LogInformation(location);
-            return _weatherForecastService.GetForecastAsync(DateTime.UtcNow, location).Result;
+            return await _weatherForecastService.GetForecastAsync(DateTime.UtcNow, location);
         }
 
         [HttpPost("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public WeatherForecast Post([FromBody] WeatherForecast weatherForecast)
+        public async Task<ActionResult<WeatherForecast>> Post([FromBody] WeatherForecast weatherForecast)
         {
             _logger.LogInformation(weatherForecast.ToString());
-            return _weatherForecastService.PostForecastAsync(weatherForecast).Result;
+            return await _weatherForecastService.PostForecastAsync(weatherForecast);
         }
 
         [HttpPut("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public WeatherForecast Put([FromRoute] long id, [FromBody] WeatherForecast weatherForecast)
+        public async Task<ActionResult<WeatherForecast>> Put([FromRoute] long id, [FromBody] WeatherForecast weatherForecast)
         {
             _logger.LogInformation($"{id} - {weatherForecast}");
-            return _weatherForecastService.PutForecastAsync(id, weatherForecast).Result;
+            return await _weatherForecastService.PutForecastAsync(id, weatherForecast);
         }
 
         [HttpDelete("WeatherForecast/{id}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public WeatherForecast Delete([FromRoute] long id)
+        public async Task<ActionResult<WeatherForecast>> Delete([FromRoute] long id)
         {
             _logger.LogInformation($"{id}");
-            return _weatherForecastService.DeleteForecastAsync(id).Result;
+            return await _weatherForecastService.DeleteForecastAsync(id);
         }
     }
 }
