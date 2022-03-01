@@ -1,69 +1,61 @@
+using System.Net;
+using InterviewChallenge.Api.Data;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace InterviewChallenge.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
+        private readonly IWeatherForecastService _weatherForecastService;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastService weatherService)
         {
             _logger = logger;
+            _weatherForecastService = weatherService;
         }
 
-        [HttpGet(Name = "WeatherForecast")]
+        [HttpGet("WeatherForecast")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            _logger.LogInformation("Empty");
+            return _weatherForecastService.GetForecastAsync(DateTime.UtcNow).Result;
         }
 
-        [HttpPost(Name = "WeatherForecast")]
-        public IEnumerable<WeatherForecast> Post()
+        [HttpGet("WeatherForecast/{location}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
+        public IEnumerable<WeatherForecast> Get([FromRoute] string? location)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            _logger.LogInformation(location);
+            return _weatherForecastService.GetForecastAsync(DateTime.UtcNow, location).Result;
         }
 
-        [HttpPut(Name = "WeatherForecast")]
-        public IEnumerable<WeatherForecast> Put()
+        [HttpPost("WeatherForecast")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
+        public WeatherForecast Post([FromBody] WeatherForecast weatherForecast)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            _logger.LogInformation(weatherForecast.ToString());
+            return _weatherForecastService.PostForecastAsync(weatherForecast).Result;
         }
 
-        [HttpDelete(Name = "WeatherForecast")]
-        public IEnumerable<WeatherForecast> Delete()
+        [HttpPut("WeatherForecast")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
+        public WeatherForecast Put([FromRoute] long id, [FromBody] WeatherForecast weatherForecast)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            _logger.LogInformation($"{id} - {weatherForecast}");
+            return _weatherForecastService.PutForecastAsync(id, weatherForecast).Result;
+        }
+
+        [HttpDelete("WeatherForecast/{id}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
+        public WeatherForecast Delete([FromRoute] long id)
+        {
+            _logger.LogInformation($"{id}");
+            return _weatherForecastService.DeleteForecastAsync(id).Result;
         }
     }
 }
