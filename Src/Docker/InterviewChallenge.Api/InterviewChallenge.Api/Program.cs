@@ -5,7 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", true, true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true)
+    .AddEnvironmentVariables();
+
+
+builder.Services.AddSingleton<IConfigurationBuilder, ConfigurationBuilder>();
+builder.Services.AddTransient<IWeatherForecastService, WeatherForecastService>();
 
 builder.Services.AddControllers();
 

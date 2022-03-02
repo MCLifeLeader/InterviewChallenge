@@ -1,20 +1,44 @@
+using RestSharp;
+
 namespace InterviewChallenge.App.Data
 {
-    public class WeatherForecastService
+    public class WeatherForecastService : IWeatherForecastService
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ConfigurationManager _configurationManager;
 
-        public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+        public WeatherForecastService(ConfigurationManager configuration)
         {
-            return Task.FromResult(Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            _configurationManager = configuration;
+        }
+
+        public async Task<List<WeatherForecast>> GetForecastAsync()
+        {
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest()
             {
-                Date = startDate.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            }).ToArray());
+                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/WeatherForecast",
+                RequestFormat = DataFormat.Json
+            };
+            request.RequestFormat = DataFormat.Json;
+
+            RestResponse<List<WeatherForecast>> response = await client.ExecuteAsync<List<WeatherForecast>>(request);
+
+            return response.Data!;
+        }
+
+        public async Task<List<WeatherForecast>> GetForecastAsync(string? location)
+        {
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest()
+            {
+                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/WeatherForecast",
+                RequestFormat = DataFormat.Json
+            };
+            request.AddParameter("location", location);
+
+            RestResponse<List<WeatherForecast>> response = await client.ExecuteAsync<List<WeatherForecast>>(request);
+
+            return response.Data!;
         }
     }
 }

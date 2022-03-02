@@ -3,7 +3,7 @@
 <PageTitle>Weather forecast</PageTitle>
 
 @using InterviewChallenge.App.Data
-@inject WeatherForecastService ForecastService
+@inject IWeatherForecastService ForecastService
 
 <h1>Weather forecast</h1>
 
@@ -22,6 +22,7 @@ else
                 <th>Temp. (C)</th>
                 <th>Temp. (F)</th>
                 <th>Summary</th>
+                <th>Location</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@ else
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.TemperatureF</td>
                     <td>@forecast.Summary</td>
+                    <td>@forecast.Location</td>
                 </tr>
             }
         </tbody>
@@ -43,6 +45,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = (await ForecastService.GetForecastAsync()).ToArray();
     }
 }
