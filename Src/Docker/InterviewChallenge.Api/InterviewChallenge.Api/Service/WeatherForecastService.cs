@@ -1,4 +1,6 @@
-namespace InterviewChallenge.Api.Data
+using InterviewChallenge.Api.Model;
+
+namespace InterviewChallenge.Api.Service
 {
     public class WeatherForecastService : IWeatherForecastService
     {

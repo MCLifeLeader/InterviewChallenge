@@ -1,5 +1,6 @@
 using System.Net;
-using InterviewChallenge.Api.Data;
+using InterviewChallenge.Api.Model;
+using InterviewChallenge.Api.Service;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -20,7 +21,7 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpGet("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
-        public async Task<ActionResult<IEnumerable<WeatherForecast>>> Get()
+        public async Task<ActionResult<IEnumerable<WeatherForecast>>> GetWeatherData()
         {
             _logger.LogInformation("Empty");
             return await _weatherForecastService.GetForecastAsync(DateTime.UtcNow);
@@ -28,7 +29,7 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpGet("WeatherForecast/{location}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "List of Weather Forecast data", typeof(IEnumerable<WeatherForecast>))]
-        public async Task<ActionResult<IEnumerable<WeatherForecast>>> Get([FromRoute] string? location)
+        public async Task<ActionResult<IEnumerable<WeatherForecast>>> GetWeatherDataByLocation([FromRoute] string? location)
         {
             _logger.LogInformation(location);
             return await _weatherForecastService.GetForecastAsync(DateTime.UtcNow, location);
@@ -36,7 +37,7 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpPost("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public async Task<ActionResult<WeatherForecast>> Post([FromBody] WeatherForecast weatherForecast)
+        public async Task<ActionResult<WeatherForecast>> PostWeatherData([FromBody] WeatherForecast weatherForecast)
         {
             _logger.LogInformation(weatherForecast.ToString());
             return await _weatherForecastService.PostForecastAsync(weatherForecast);
@@ -44,7 +45,7 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpPut("WeatherForecast")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public async Task<ActionResult<WeatherForecast>> Put([FromRoute] long id, [FromBody] WeatherForecast weatherForecast)
+        public async Task<ActionResult<WeatherForecast>> PutWeatherData([FromRoute] long id, [FromBody] WeatherForecast weatherForecast)
         {
             _logger.LogInformation($"{id} - {weatherForecast}");
             return await _weatherForecastService.PutForecastAsync(id, weatherForecast);
@@ -52,7 +53,7 @@ namespace InterviewChallenge.Api.Controllers
 
         [HttpDelete("WeatherForecast/{id}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Weather Forecast data", typeof(WeatherForecast))]
-        public async Task<ActionResult<WeatherForecast>> Delete([FromRoute] long id)
+        public async Task<ActionResult<WeatherForecast>> DeleteWeatherData([FromRoute] long id)
         {
             _logger.LogInformation($"{id}");
             return await _weatherForecastService.DeleteForecastAsync(id);

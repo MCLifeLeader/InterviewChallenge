@@ -6,6 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>23b6187d-f766-49c1-860f-915f4cbee852</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Configurations>Debug;Release;Docker</Configurations>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docker|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +25,13 @@
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Properties\ServiceDependencies\kb7ppb-linux - Zip Deploy\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\Index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

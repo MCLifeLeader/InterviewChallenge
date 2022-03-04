@@ -1,5 +1,6 @@
-using InterviewChallenge.Api.Data;
-using Microsoft.OpenApi.Models;
+using InterviewChallenge.Api.Model;
+using InterviewChallenge.Api.Service;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,6 @@ builder.Configuration
     .AddJsonFile("appsettings.json", true, true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true)
     .AddEnvironmentVariables();
-
 
 builder.Services.AddSingleton<IConfigurationBuilder, ConfigurationBuilder>();
 builder.Services.AddTransient<IWeatherForecastService, WeatherForecastService>();
@@ -49,20 +49,3 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.Run();
-
-internal class ApiInfo
-{
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    public OpenApiInfo GetApiVersion()
-    {
-        return new OpenApiInfo
-        {
-            Title = "Interview Challenge Api",
-            Version = "v1",
-            Description = $"A restful API as an interview challenge. Build Version: {GetType().Assembly.GetName().Version}"
-        };
-    }
-}

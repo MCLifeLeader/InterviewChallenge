@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		..\build_docker.ps1 = ..\build_docker.ps1
 		..\LICENSE = ..\LICENSE
 		..\Nuget\nuget.config = ..\Nuget\nuget.config
+		..\push_docker.ps1 = ..\push_docker.ps1
 		..\README.md = ..\README.md
 		..\run_tests.ps1 = ..\run_tests.ps1
 		..\start_docker.ps1 = ..\start_docker.ps1
@@ -25,19 +26,26 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Docker|Any CPU = Docker|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
+		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Docker|Any CPU.Build.0 = Docker|Any CPU
 		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC951948-258F-4A4B-BB70-FAEA6470B0D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
+		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Docker|Any CPU.Build.0 = Docker|Any CPU
 		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9A8DAF9-DB63-4DBC-B081-EBD5C10FD5B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
+		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Docker|Any CPU.Build.0 = Docker|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

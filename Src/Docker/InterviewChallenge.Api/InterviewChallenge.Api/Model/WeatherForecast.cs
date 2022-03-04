@@ -1,4 +1,4 @@
-namespace InterviewChallenge.Api.Data
+namespace InterviewChallenge.Api.Model
 {
     public class WeatherForecast
     {
