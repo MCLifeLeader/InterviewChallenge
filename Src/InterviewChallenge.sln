@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		..\stop_docker.ps1 = ..\stop_docker.ps1
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "InterviewChallenge.Sql", "InterviewChallenge.Sql\InterviewChallenge.Sql.sqlproj", "{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,15 @@ Global
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Docker|Any CPU.Build.0 = Docker|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Docker|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Docker|Any CPU.Build.0 = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Docker|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
