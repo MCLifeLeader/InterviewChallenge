@@ -16,7 +16,7 @@ namespace InterviewChallenge.App.Data
             RestClient client = new RestClient();
             RestRequest request = new RestRequest()
             {
-                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/WeatherForecast",
+                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/Data",
                 RequestFormat = DataFormat.Json
             };
             request.RequestFormat = DataFormat.Json;
@@ -31,7 +31,7 @@ namespace InterviewChallenge.App.Data
             RestClient client = new RestClient();
             RestRequest request = new RestRequest()
             {
-                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/WeatherForecast",
+                Resource = $"{_configurationManager.GetSection("AppSettings")["DataUrl"]}api/WeatherForecast/Data",
                 RequestFormat = DataFormat.Json
             };
             request.AddParameter("location", location);
