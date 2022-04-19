@@ -38,3 +38,7 @@ These instructions will be for running on a local developer machine after clonin
 1. Docker Container Deployment</br>
 \Pipeline\Azure_Docker_Deployment.yml (Not Implemented Yet.)
 
+## Deployed Projects
+
+https://si-interview-app.azurewebsites.net/
+https://si-interview-api.azurewebsites.net/swagger/index.html
