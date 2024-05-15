@@ -10,3 +10,7 @@ $job = $jobs | Where-Object { $_.Command -like '*InterviewChallenge*' }
 # Use either Stop-Job or Remove-Job to kill the job.
 Stop-Job $job.Id
 Remove-Job $job.Id
+
+# Stop the Docker containers for the redis cache
+docker stop $(docker ps -a -q --filter "name=cache*")
+docker rm $(docker ps -a -q --filter "name=cache*")

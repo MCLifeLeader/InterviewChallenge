@@ -14,4 +14,4 @@ if (Get-Command docker -ErrorAction SilentlyContinue) {
     docker-compose -f "./containers/docker-compose.yml" -p interview up -d
 }
 
-Write-Host "Head back to  README.md  for deployment of the database and other services..."
+Write-Host "Docker Setup Complete..."
