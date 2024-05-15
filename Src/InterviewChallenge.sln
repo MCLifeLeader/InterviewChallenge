@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.AppHost"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.ApiService", "InterviewChallenge.ApiService\InterviewChallenge.ApiService.csproj", "{B5C400C4-DCD2-4EED-8702-A79455EB0807}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.Tests", "InterviewChallenge.Tests\InterviewChallenge.Tests.csproj", "{D01A8577-91FC-4904-A672-171AF7C6847B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,12 @@ Global
 		{B5C400C4-DCD2-4EED-8702-A79455EB0807}.Docker|Any CPU.Build.0 = Debug|Any CPU
 		{B5C400C4-DCD2-4EED-8702-A79455EB0807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C400C4-DCD2-4EED-8702-A79455EB0807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Docker|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Docker|Any CPU.Build.0 = Debug|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01A8577-91FC-4904-A672-171AF7C6847B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +86,7 @@ Global
 		{8DF452FC-34F3-4650-B7A9-5C52B3747EFB} = {A572B75A-1AF5-4F0F-A333-6DDAF06DAC98}
 		{7ED87956-02FB-452B-86F6-74BB6E725CAE} = {A572B75A-1AF5-4F0F-A333-6DDAF06DAC98}
 		{B5C400C4-DCD2-4EED-8702-A79455EB0807} = {A572B75A-1AF5-4F0F-A333-6DDAF06DAC98}
+		{D01A8577-91FC-4904-A672-171AF7C6847B} = {A572B75A-1AF5-4F0F-A333-6DDAF06DAC98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C609587B-824A-4AB0-A454-E5AA344C7A41}

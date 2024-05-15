@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -23,6 +23,11 @@
 
     <ItemGroup>
       <Folder Include="TestResults\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InterviewChallenge.ApiService\InterviewChallenge.ApiService.csproj" />
+      <ProjectReference Include="..\InterviewChallenge.Web\InterviewChallenge.Web.csproj" />
     </ItemGroup>
 
 </Project>
