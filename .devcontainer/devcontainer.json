@@ -58,12 +58,16 @@
     "TARGET": "net8.0"
   },
   "portsAttributes": {
-    "7172": {
-      "label": "Web API",
+    "17286": {
+      "label": "Aspire Dashboard",
       "onAutoForward": "notify"
     },
-    "7255": {
-      "label": "Web APP",
+    "7321": {
+      "label": "Interview Challenge Api Service",
+      "onAutoForward": "notify"
+    },
+    "7259": {
+      "label": "Interview Challenge Web Application",
       "onAutoForward": "notify"
     }
   }

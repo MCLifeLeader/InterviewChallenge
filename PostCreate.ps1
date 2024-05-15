@@ -1,15 +1,25 @@
 # Setup Development Environment DevContainer
 Write-Host "Post Create Commands for Environment..."
 
-cd Api/Api.Startup.Example
-dotnet restore Startup.Api.csproj
-cd ../../Blazor/Blazor.Server.Startup.Example
-dotnet restore Startup.Blazor.Server.csproj
-cd ../../Console/Console.Startup.Example
-dotnet restore Startup.Console.csproj
-cd ../../Web/Web.Startup.Example
-dotnet restore Startup.Web.csproj
-cd ../../
+Set-Location ./Src/
+
+Set-Location ./InterviewChallenge.ApiService
+dotnet restore InterviewChallenge.ApiService.csproj
+
+Set-Location ../../InterviewChallenge.AppHost
+dotnet restore InterviewChallenge.AppHost.csproj
+
+Set-Location ../../InterviewChallenge.ServiceDefaults
+dotnet restore InterviewChallenge.ServiceDefaults.csproj
+
+Set-Location ../../InterviewChallenge.Web
+dotnet restore InterviewChallenge.Web.csproj
+libman restore
+
+Set-Location ../../InterviewChallenge.Tests
+dotnet restore InterviewChallenge.Tests.csproj
+
+Set-Location ../..
 
 # Setup git Configurations
 git config --global credential.useHttpPath true
