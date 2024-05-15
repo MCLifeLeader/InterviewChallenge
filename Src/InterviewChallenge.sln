@@ -3,16 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.Tests", "Tests\InterviewChallenge.Tests\InterviewChallenge.Tests\InterviewChallenge.Tests.csproj", "{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{FA233584-CC3F-4CA4-98F2-597C1DE816FB}"
 	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
 		..\.gitignore = ..\.gitignore
-		..\.devcontainer\devcontainer.json = ..\.devcontainer\devcontainer.json
+		..\containers\mssql\db-init.sql = ..\containers\mssql\db-init.sql
 		..\Docker_Setup.ps1 = ..\Docker_Setup.ps1
-		..\LICENSE = ..\LICENSE
-		..\PostCreate.ps1 = ..\PostCreate.ps1
-		..\README.md = ..\README.md
+		..\nuget.config = ..\nuget.config
+		..\readme.md = ..\readme.md
 		..\run_tests.ps1 = ..\run_tests.ps1
 	EndProjectSection
 EndProject
@@ -25,12 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Docker|Any CPU.ActiveCfg = Docker|Any CPU
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Docker|Any CPU.Build.0 = Docker|Any CPU
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FABFCF7-5A9E-43C6-942F-F2F1669D19C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}.Debug|Any CPU.Deploy.0 = Debug|Any CPU

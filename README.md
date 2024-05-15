@@ -1,44 +1,79 @@
 # Interview Challenge Project
 
-This project is intended to be used during the interview and hiring process. You can provide this project to a prospective candidate and
-ask them to implement various functional behavior depending upon the role they are applying for.
+Note: This project is under development and is not yet ready for use.
 
-Developers can be asked to implement functional behavior within the Api or App projects whereas a QA or SDET can use the test project
-to implement test automation.
+## Introduction
+
+This project is designed to rigorously test the capabilities of each candidate across these crucial roles, ensuring that those 
+who succeed are well-equipped to contribute significantly to our engineering efforts.
+
+### Intented Audience
+
+This project can be used for the following roles:
+* Software Development Engineer (SDE)
+* Software Development Engineer in Test (SDET)
+* Quality Assurance Engineer (QAE)
+* Database Engineer (DBE)
+
+### Project Introduction and Overview
+
+This Visual Studio project, utilizing C#, ASP.NET, and SQL Database, is designed as an advanced interview tool aimed at identifying
+and hiring highly skilled engineers. The project's complexity and comprehensive nature are intended to test candidates across a 
+variety of roles: Software Development Engineer (SDE), Software Development Engineer in Test (SDET), Quality Assurance Engineer (QAE),
+and Database Engineer (DBE). Each role faces unique challenges that require not only a deep understanding of their respective fields
+but also the ability to apply practical knowledge to real-world problems. This interview challenge is structured to extend beyond
+conventional coding tests, necessitating multiple sessions and several hours to complete independently, thus providing a thorough
+assessment of each candidate's technical abilities, problem-solving skills, and perseverance.
+
+### Software Development Engineer (SDE)
+
+For the SDE role, candidates will encounter challenges in designing and implementing robust ASP.NET applications that interact
+efficiently with SQL databases. The key tasks will involve developing scalable web services, optimizing data retrieval, and ensuring 
+seamless user interactions. Candidates will need to demonstrate their proficiency in writing clean, maintainable C# code, their 
+understanding of web application architecture, and their ability to integrate complex business logic into a fully functional system. 
+The complexity of the tasks will test the candidate’s skills in handling concurrency issues, managing state, and preventing 
+security vulnerabilities in a web application context.
+
+### Software Development Engineer in Test (SDET)
+
+Candidates interviewing for the SDET role will focus on developing automated test frameworks and tools to validate the software 
+created by SDEs. The challenge includes writing comprehensive unit tests, integration tests, and system tests using C#. They will
+need to demonstrate a strong grasp of testing methodologies and the ability to implement tests that are both effective and efficient.
+The SDET will also face challenges in mocking database interactions and ensuring that edge cases are properly tested, which 
+requires a deep understanding of both the code base and the SQL database operations. This role’s complexity lies in creating a 
+testing environment that mimics real-world scenarios to catch bugs and ensure the application’s reliability and performance under 
+stress.
+
+### Quality Assurance Engineer (QAE)
+
+The QAE role’s challenge involves rigorous testing of the application’s interface and backend functionality to ensure it meets all 
+specified requirements. Candidates will be expected to manually test the application, develop test cases, and report on usability, 
+as well as functional flaws. The detailed scrutiny required to perform these tasks effectively will test the QAE's meticulous attention 
+to detail and their ability to think critically about the usability and functionality of complex systems. They must also demonstrate 
+expertise in performance testing, requiring a solid understanding of both the front-end and database performance issues, identifying 
+bottlenecks, and providing actionable feedback for optimization.
+
+### Database Engineer (DBE)
+
+DBE candidates will tackle challenges centered on database schema design, implementation, and optimization. They will be required to 
+write complex SQL queries and procedures to support high-volume data manipulation and retrieval operations that are crucial for the
+application's performance. The DBE’s tasks will include optimizing queries for performance and scalability, designing robust database 
+structures that support the application's functionality, and ensuring data integrity and security. Candidates will also face the 
+challenge of setting up and tearing down test databases, which requires meticulous planning and understanding of the database’s role 
+within the broader application architecture.
 
 ## Dependencies
 
 * Visual Studio 2022 or Visual Studio Code
-* C# .NET 6 Runtime and SDK
+* C# .NET 8 Runtime and SDK
   * Nuget Packages
 * Docker Engine or Daemon installed and running
   * If on Windows use Linux support (WSL)
-  * I use Docker Desktop and recommend it as it provides a GUI interface to running the containers and container management.
-* The InterviewChallenge.Tests project needs both the InterviewChallenge.Api and InterviewChallenge.App projects to successfully run the examples.
-* (Optional) PowerShell version >= 7.2.1
+* (Optional) PowerShell version >= 7.x
 
 ## Build and Run Projects
 
 These instructions will be for running on a local developer machine after cloning the project.
 
-1. Run the following to build the C#.Net project and create the Docker images.</br>
-./build_docker.ps1
-
-2. Run the following to create the Docker containers and run them from the Docker images.</br>
-./start_docker.ps1
-
-3. Run the following to execute the tests.</br>
+1. Run the following to execute the tests.</br>
 ./run_tests.ps1
-
-4. Run the following to stop and remove the Docker containers. Note: The Docker images will be left and this will only stop and remove the active containers.</br>
-./stop_docker.ps1
-
-## Build Yaml Scripts
-
-1. Docker Container Deployment</br>
-\Pipeline\Azure_Docker_Deployment.yml (Not Implemented Yet.)
-
-## Deployed Projects
-
-https://si-interview-app.azurewebsites.net/
-https://si-interview-api.azurewebsites.net/swagger/index.html
