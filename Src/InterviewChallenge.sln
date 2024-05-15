@@ -9,10 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		..\.gitignore = ..\.gitignore
 		..\containers\mssql\db-init.sql = ..\containers\mssql\db-init.sql
 		..\.devcontainer\devcontainer.json = ..\.devcontainer\devcontainer.json
-		..\Docker_Setup.ps1 = ..\Docker_Setup.ps1
+		..\docker_setup.ps1 = ..\docker_setup.ps1
 		..\nuget.config = ..\nuget.config
+		..\post_create.ps1 = ..\post_create.ps1
 		..\readme.md = ..\readme.md
 		..\run_tests.ps1 = ..\run_tests.ps1
+		..\start_app.ps1 = ..\start_app.ps1
+		..\stop_app.ps1 = ..\stop_app.ps1
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "InterviewChallenge.Sql", "InterviewChallenge.Sql\InterviewChallenge.Sql.sqlproj", "{4D5E321B-F32C-4CF5-B4AC-07FD3F40D798}"

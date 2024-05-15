@@ -47,7 +47,7 @@
     5062,
     7259
   ],
-  "postCreateCommand": "cd ./src && pwsh -File ./PostCreate.ps1",
+  "postCreateCommand": "cd ./src && pwsh -File ./post_create.ps1",
   "hostRequirements": {
     "cpus": 4,
     "memory": "16gb",
