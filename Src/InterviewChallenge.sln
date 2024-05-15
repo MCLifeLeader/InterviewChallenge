@@ -8,7 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{FA233584-CC3F-4CA4-98F2-597C1DE816FB}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		..\.devcontainer\devcontainer.json = ..\.devcontainer\devcontainer.json
+		..\Docker_Setup.ps1 = ..\Docker_Setup.ps1
 		..\LICENSE = ..\LICENSE
+		..\PostCreate.ps1 = ..\PostCreate.ps1
 		..\README.md = ..\README.md
 		..\run_tests.ps1 = ..\run_tests.ps1
 	EndProjectSection
