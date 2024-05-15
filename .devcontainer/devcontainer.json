@@ -36,8 +36,16 @@
     }
   },
   "forwardPorts": [
-    7172,
-    7255
+    17286,
+    15037,
+    19152,
+    20242,
+    21231,
+    22247,
+    5533,
+    7321,
+    5062,
+    7259
   ],
   "postCreateCommand": "cd ./src && pwsh -File ./PostCreate.ps1",
   "hostRequirements": {
