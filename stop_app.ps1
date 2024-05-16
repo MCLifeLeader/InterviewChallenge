@@ -1,3 +1,5 @@
+Write-Host "Stopping Application Services..."
+
 # Get the list of all running jobs.
 Get-Job
 
@@ -12,5 +14,5 @@ Stop-Job $job.Id
 Remove-Job $job.Id
 
 # Stop the Docker containers for the redis cache
-docker stop $(docker ps -a -q --filter "name=cache*")
-docker rm $(docker ps -a -q --filter "name=cache*")
+docker stop $(docker ps -a -q --filter "name=rediscache*")
+docker rm $(docker ps -a -q --filter "name=rediscache*")
