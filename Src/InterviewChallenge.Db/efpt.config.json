@@ -1,0 +1,66 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "InterviewChallengeContainer",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Repositories\/Db",
+   "OutputPath": "Models\/Db",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "InterviewChallenge.Data",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Category]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FeedRunLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SyndicationFeed]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SyndicationFeedToCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SyndicationSource]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SyndicationToCategory]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": true,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": true,
+   "UseSchemaNamespaces": true,
+   "UseSpatial": false,
+   "UseT4": false
+}
