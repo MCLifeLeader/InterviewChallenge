@@ -13,6 +13,7 @@ public class HttpClientWrapper : IHttpClientWrapper
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<HttpClientWrapper> _logger;
 
+    // ReSharper disable once ConvertToPrimaryConstructor
     public HttpClientWrapper(
         ILogger<HttpClientWrapper> logger,
         IHttpClientFactory httpClientFactory)

@@ -2,11 +2,7 @@
 
 public static class HttpClientNames
 {
-    // ReSharper disable once IdentifierTypo
-    // ReSharper disable once InconsistentNaming
-    public const string InterviewChallenge_API = "InterviewChallenge_Api";
+    public const string INTERVIEW_CHALLENGE_API = "InterviewChallenge_Api";
 
-    // ReSharper disable once IdentifierTypo
-    // ReSharper disable once InconsistentNaming
-    public const string InterviewChallenge_APP = "InterviewChallenge_App";
+    public const string INTERVIEW_CHALLENGE_APP = "InterviewChallenge_App";
 }
