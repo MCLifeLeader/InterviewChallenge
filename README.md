@@ -77,3 +77,8 @@ This will start the application at: https://localhost:17286/
 
 3. Run the following to execute the tests.</br>
 ./run_tests.ps1
+
+# Codespaces
+## GitHub Configuration
+git config --global user.name "Your Name"
+git config --global user.email "youremail@yourdomain.com"
