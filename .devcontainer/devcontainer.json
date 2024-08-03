@@ -25,27 +25,33 @@
         "terminal.integrated.defaultProfile.windows": "PowerShell"
       },
       "extensions": [
-        "ms-vscode.vscode-node-azure-pack",
+        "DotJoshJohnson.xml",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "GitHub.vscode-github-actions",
+        "humao.rest-client",
+        "mechatroner.rainbow-csv",
         "ms-dotnettools.vscode-dotnet-runtime",
         "ms-dotnettools.csdevkit",
-        "ms-dotnettools.csharp"
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscodeintellicode-csharp",
+        "ms-mssql.mssql",
+        "ms-vscode.vscode-node-azure-pack",
+        "ms-vsliveshare.vsliveshare",
+        "rangav.vscode-thunder-client",
+        "redhat.vscode-yaml",
+        "ritwickdey.LiveServer",
+        "yzhang.markdown-all-in-one"
       ]
     }
   },
   "forwardPorts": [
-    17286,
-    15037,
-    19152,
-    20242,
-    21231,
-    22247,
-    5533,
-    7321,
-    5062,
-    7259
+    // MailHog
+    8024,
+    // SQL Server
+    4443
   ],
   "postCreateCommand": "cd ./src && pwsh -File ./post_create.ps1",
   "hostRequirements": {
@@ -58,17 +64,15 @@
     "TARGET": "net8.0"
   },
   "portsAttributes": {
-    "17286": {
-      "label": "Aspire Dashboard",
-      "onAutoForward": "notify"
+    "8024": {
+      "label": "MailHog",
+      "requireLocalPort": false,
+      "onAutoForward": "silent"
     },
-    "7321": {
-      "label": "Interview Challenge Api Service",
-      "onAutoForward": "notify"
-    },
-    "7259": {
-      "label": "Interview Challenge Web Application",
-      "onAutoForward": "notify"
+    "4443": {
+      "label": "SQL Server",
+      "requireLocalPort": false,
+      "onAutoForward": "silent"
     }
   }
 }
