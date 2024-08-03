@@ -5,8 +5,6 @@ dotnet workload update
 dotnet workload install aspire
 dotnet tool install -g Microsoft.Web.LibraryManager.Cli
 
-Set-Location ./Src/
-
 Set-Location ./InterviewChallenge.ApiService
 dotnet restore InterviewChallenge.ApiService.csproj
 
