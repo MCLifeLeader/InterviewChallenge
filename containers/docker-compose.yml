@@ -14,7 +14,7 @@ services:
         image: redis:latest
         ports:
             - "3379:6379"
-        container_name: ExampleRedisCache
+        container_name: InterviewRedisCache
 
 # Development Resources
     mailhog:
@@ -25,7 +25,7 @@ services:
         ports:
             - "1023:1025" # smtp server
             - "8023:8025" # web ui
-        container_name: ExampleMailhog
+        container_name: InterviewMailhog
 
     otel-collector:
         image: datalust/seq:latest
@@ -34,4 +34,4 @@ services:
             SEQ_API_KEY: "1234567890"
         ports:
             - "3341:80" # OpenTelemetry
-        container_name: ExampleOtelCollector
+        container_name: InterviewOtelCollector
