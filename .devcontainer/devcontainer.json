@@ -49,9 +49,9 @@
   },
   "forwardPorts": [
     // MailHog
-    8024,
+    8023,
     // SQL Server
-    4443
+    3443
   ],
   "postCreateCommand": "cd ./src && pwsh -File ./post_create.ps1",
   "hostRequirements": {
@@ -64,12 +64,12 @@
     "TARGET": "net8.0"
   },
   "portsAttributes": {
-    "8024": {
+    "8023": {
       "label": "MailHog",
       "requireLocalPort": false,
       "onAutoForward": "silent"
     },
-    "4443": {
+    "3443": {
       "label": "SQL Server",
       "requireLocalPort": false,
       "onAutoForward": "silent"

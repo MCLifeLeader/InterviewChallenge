@@ -4,7 +4,7 @@ if (Get-Command docker -ErrorAction SilentlyContinue) {
     Write-Host "Docker images and container setup started."
 
     ## Start the vs multi-container
-    docker-compose -f "./containers/docker-compose.yml" -p example up -d
+    docker-compose -f "./containers/docker-compose.yml" -p interview up -d
 }
 
 Write-Host "Docker images and container setup completed."
