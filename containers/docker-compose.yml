@@ -6,6 +6,32 @@ services:
             ACCEPT_EULA: "Y"
             MSSQL_AGENT_ENABLED: "true"
         ports:
-            - "5443:1433"
+            - "3443:1433"
         container_name: InterviewChallengeSql
         hostname: mssql
+
+    redis:
+        image: redis:latest
+        ports:
+            - "3379:6379"
+        container_name: InterviewRedisCache
+
+# Development Resources
+    mailhog:
+        # build: ./mailhog
+        image: mailhog/mailhog:latest
+        logging:
+            driver: 'none' # Disable logging
+        ports:
+            - "1023:1025" # smtp server
+            - "8023:8025" # web ui
+        container_name: InterviewMailhog
+
+    otel-collector:
+        image: datalust/seq:latest
+        environment:
+            ACCEPT_EULA: "Y"
+            SEQ_API_KEY: "1234567890"
+        ports:
+            - "3341:80" # OpenTelemetry
+        container_name: InterviewOtelCollector

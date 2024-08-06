@@ -72,5 +72,6 @@
   <ItemGroup>
     <None Include="InterviewChallenge.Sql.publish.xml" />
     <None Include="readme.md" />
+    <None Include="InterviewChallenge.Sql.Container.publish.xml" />
   </ItemGroup>
 </Project>

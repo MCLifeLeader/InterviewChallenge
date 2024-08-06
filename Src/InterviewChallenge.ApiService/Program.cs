@@ -1,4 +1,5 @@
 using InterviewChallenge.ServiceDefaults;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,15 @@ app.MapGet("/weatherforecast", () =>
         ))
         .ToArray();
     return forecast;
+
+    // return new ProblemDetails
+    // {
+    //     Status = 500,
+    //     Title = "An error occurred while fetching weather forecast.",
+    //     Detail = "An error occurred while fetching weather forecast.",
+    //     Instance = "/weatherforecast",
+    //     Type = "https://httpstatuses.com/500"
+    // };
 });
 
 app.MapDefaultEndpoints();
