@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
+# 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{FA233584-CC3F-4CA4-98F2-597C1DE816FB}"
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
 		..\.gitignore = ..\.gitignore
+		.vsconfig = .vsconfig
 		..\containers\mssql\db-init.sql = ..\containers\mssql\db-init.sql
 		..\.devcontainer\devcontainer.json = ..\.devcontainer\devcontainer.json
 		..\docker_setup.ps1 = ..\docker_setup.ps1
@@ -34,9 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.ApiServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.Tests", "InterviewChallenge.Tests\InterviewChallenge.Tests.csproj", "{D01A8577-91FC-4904-A672-171AF7C6847B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewChallenge.Db", "InterviewChallenge.Db\InterviewChallenge.Db.csproj", "{12872BE1-8B88-4B09-83F8-42927043DEAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.Db", "InterviewChallenge.Db\InterviewChallenge.Db.csproj", "{12872BE1-8B88-4B09-83F8-42927043DEAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewChallenge.Common", "InterviewChallenge.Common\InterviewChallenge.Common.csproj", "{FDE7846B-79FD-4A43-B2FC-3000D8E780BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewChallenge.Common", "InterviewChallenge.Common\InterviewChallenge.Common.csproj", "{FDE7846B-79FD-4A43-B2FC-3000D8E780BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
