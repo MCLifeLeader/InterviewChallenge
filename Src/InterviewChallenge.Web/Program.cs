@@ -5,7 +5,7 @@ using InterviewChallenge.Web.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
-builder.AddServiceDefaults();
+builder.AddServiceDefaults(null);
 builder.AddRedisOutputCache("rediscache");
 
 // Add services to the container.

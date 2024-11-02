@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
-builder.AddServiceDefaults();
+builder.AddServiceDefaults(null);
 
 // Add services to the container.
 builder.Services.AddProblemDetails();

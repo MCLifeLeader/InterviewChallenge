@@ -1,3 +1,4 @@
+using InterviewChallenge.ServiceDefaults.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.DependencyInjection;
@@ -5,16 +6,23 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry;
+using OpenTelemetry.Exporter;
+using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using System.Reflection;
 
 namespace InterviewChallenge.ServiceDefaults;
 
+// Adds common .NET Aspire services: service discovery, resilience, health checks, and OpenTelemetry.
+// This project should be referenced by each service project in your solution.
+// To learn more about using this project, see https://aka.ms/dotnet/aspire/service-defaults
 public static class Extensions
 {
-    public static IHostApplicationBuilder AddServiceDefaults(this IHostApplicationBuilder builder)
+    public static IHostApplicationBuilder AddServiceDefaults(this IHostApplicationBuilder builder, AppConfiguration? configuration)
     {
-        builder.ConfigureOpenTelemetry();
+        builder.ConfigureOpenTelemetry(configuration?.OpenTelemetry);
 
         builder.AddDefaultHealthChecks();
 
@@ -28,11 +36,10 @@ public static class Extensions
             // Turn on service discovery by default
             http.AddServiceDiscovery();
         });
-
         return builder;
     }
 
-    public static IHostApplicationBuilder ConfigureOpenTelemetry(this IHostApplicationBuilder builder)
+    public static IHostApplicationBuilder ConfigureOpenTelemetry(this IHostApplicationBuilder builder, Models.OpenTelemetry? configuration)
     {
         builder.Logging.AddOpenTelemetry(logging =>
         {
@@ -54,24 +61,49 @@ public static class Extensions
                     //.AddGrpcClientInstrumentation()
                     .AddHttpClientInstrumentation();
             });
-
-        builder.AddOpenTelemetryExporters();
-
+        builder.AddOpenTelemetryExporters(configuration);
         return builder;
     }
 
-    private static IHostApplicationBuilder AddOpenTelemetryExporters(this IHostApplicationBuilder builder)
+    private static IHostApplicationBuilder AddOpenTelemetryExporters(this IHostApplicationBuilder builder, Models.OpenTelemetry? configuration)
     {
-        var useOtlpExporter = !string.IsNullOrWhiteSpace(builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]);
-
-        if (useOtlpExporter)
+        builder.Logging.AddOpenTelemetry(x =>
         {
-            builder.Services.AddOpenTelemetry().UseOtlpExporter();
-        }
+            x.SetResourceBuilder(ResourceBuilder.CreateEmpty()
+                .AddService(Assembly.GetEntryAssembly()?.GetName().Name ?? "Unknown")
+                .AddAttributes(new Dictionary<string, object>()
+                {
+                    ["deployment.environment"] = builder.Environment.EnvironmentName,
+                    ["deployment.version"] = Assembly.GetEntryAssembly()?.GetName().Version?.ToString() ?? "1.0.0.0"
+                }));
 
-        // Uncomment the following lines to enable the Prometheus exporter (requires the OpenTelemetry.Exporter.Prometheus.AspNetCore package)
-        // builder.Services.AddOpenTelemetry()
-        //    .WithMetrics(metrics => metrics.AddPrometheusExporter());
+            x.IncludeScopes = true;
+            x.IncludeFormattedMessage = true;
+
+            x.AddConsoleExporter();
+
+            // Use a custom exporter if configuration is provided
+            if (configuration != null)
+            {
+                x.AddOtlpExporter(a =>
+                {
+                    a.Endpoint = new Uri(configuration.Endpoint);
+                    a.Protocol = OtlpExportProtocol.HttpProtobuf;
+                    a.Headers = $"X-Seq-ApiKey={configuration.ApiKey}";
+                });
+            }
+        });
+
+        // Use the Aspire Dashboard OpenTelemetry exporter if no configuration is provided
+        if (configuration == null)
+        {
+            var useOtlpExporter = !string.IsNullOrWhiteSpace(builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]);
+
+            if (useOtlpExporter)
+            {
+                builder.Services.AddOpenTelemetry().UseOtlpExporter();
+            }
+        }
 
         // Uncomment the following lines to enable the Azure Monitor exporter (requires the Azure.Monitor.OpenTelemetry.AspNetCore package)
         //if (!string.IsNullOrEmpty(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]))
@@ -94,9 +126,6 @@ public static class Extensions
 
     public static WebApplication MapDefaultEndpoints(this WebApplication app)
     {
-        // Uncomment the following line to enable the Prometheus endpoint (requires the OpenTelemetry.Exporter.Prometheus.AspNetCore package)
-        // app.MapPrometheusScrapingEndpoint();
-
         // Adding health checks endpoints to applications in non-development environments has security implications.
         // See https://aka.ms/dotnet/aspire/healthchecks for details before enabling these endpoints in non-development environments.
         if (app.Environment.IsDevelopment())
